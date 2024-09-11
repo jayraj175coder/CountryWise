@@ -1,0 +1,13 @@
+<!-- Country Cards Grid -->
+<div class="country-list">
+    <div *ngFor="let country of filteredCountries" class="country-card" (click)="viewCountryDetails(country)">
+      <img [src]="country.flag" alt="{{ country.name }} flag" class="country-flag" />
+      <div class="country-info">
+        <h3 class="country-name">{{ country.name }}</h3>
+        <p><strong>Population:</strong> {{ country.population }}</p>
+        <p><strong>Region:</strong> {{ country.region }}</p>
+        <p><strong>Capital:</strong> {{ country.capital }}</p>
+      </div>
+    </div>
+  </div>
+  

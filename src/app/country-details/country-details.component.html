@@ -1,0 +1,19 @@
+<div class="country-details">
+    <button (click)="goBack()">Back</button>
+  
+    <div class="country-details-content">
+      <img [src]="country.flag" alt="{{ country.name }} flag" class="country-details-flag" />
+  
+      <div class="country-details-info">
+        <h2>{{ country.name }}</h2>
+        <p><strong>Native Name:</strong> {{ country.nativeName }}</p>
+        <p><strong>Population:</strong> {{ country.population }}</p>
+        <p><strong>Region:</strong> {{ country.region }}</p>
+        <p><strong>Sub Region:</strong> {{ country.subregion }}</p>
+        <p><strong>Capital:</strong> {{ country.capital }}</p>
+        <p><strong>Languages:</strong> {{ country.languages | json }}</p>
+        <p><strong>Currencies:</strong> {{ country.currencies | json }}</p>
+      </div>
+    </div>
+  </div>
+  

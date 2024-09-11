@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Dark Mode */
+body.dark-mode {
+    background-color: hsl(207, 26%, 17%) !important; /* Dark Mode Background */
+    color: hsl(0, 0%, 100%) !important; /* Dark Mode Text */
+  }
+  
+  /* Ensure dark mode styles for specific elements */
+  body.dark-mode .header {
+    background-color: hsl(209, 23%, 22%) !important;
+    color: hsl(0, 0%, 100%) !important;
+  }
+  
+  body.dark-mode .country-card {
+    background-color: hsl(209, 23%, 22%) !important;
+    color: hsl(0, 0%, 100%) !important;
+  }
+/* Light Mode Styles */
+.country-details {
+    background-color: hsl(0, 0%, 100%); /* Light Mode Background */
+    color: hsl(200, 15%, 8%); /* Light Mode Text */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dark Mode Styles */
+  body.dark-mode .country-details {
+    background-color: hsl(209, 23%, 22%) !important; /* Dark Mode Background */
+    color: hsl(0, 0%, 100%) !important; /* Dark Mode Text */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  body.dark-mode .country-details-container {
+    color: hsl(0, 0%, 100%) !important;
+  }
+  
+  body.dark-mode .country-info p {
+    color: hsl(0, 0%, 100%) !important;
+  }
+  
+  body.dark-mode .country-info strong {
+    color: hsl(0, 0%, 100%) !important;
+  }
+  
+  body.dark-mode .border-countries {
+    color: hsl(0, 0%, 100%) !important;
+  }
+    
