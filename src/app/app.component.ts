@@ -1,7 +1,7 @@
 // app.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CountryService } from './country.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -19,34 +19,42 @@ export class AppComponent implements OnInit {
   isDarkMode: boolean = false;
   selectedCountry: any;
 
-  constructor(private countryService: CountryService) {}
+  constructor(
+    private countryService: CountryService,
+    @Inject(PLATFORM_ID) private platformId: object
+  ) {}
 
   ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      // Load the dark mode setting from localStorage if available
+      const storedTheme = localStorage.getItem('darkMode');
+      this.isDarkMode = storedTheme === 'true';
+      this.applyDarkMode(this.isDarkMode);
+    }
+
+    // Fetch country data
     this.countryService.getCountries().subscribe((data) => {
       this.countries = data;
       this.filteredCountries = this.countries;
     });
-     // Load dark mode preference from local storage
-  const darkModePreference = localStorage.getItem('darkMode');
-  if (darkModePreference) {
-    this.isDarkMode = JSON.parse(darkModePreference);
-    document.body.classList.toggle('dark-mode', this.isDarkMode);
-  }
-
-  // Load country data
-  this.countryService.getCountries().subscribe((data) => {
-    this.countries = data;
-    this.filteredCountries = this.countries;
-  });
   }
 
   toggleDarkMode() {
-    this.isDarkMode = !this.isDarkMode;
-    console.log('Dark mode toggled:', this.isDarkMode); // Debugging log
-    document.body.classList.toggle('dark-mode', this.isDarkMode);
-    localStorage.setItem('darkMode', JSON.stringify(this.isDarkMode));
+    if (isPlatformBrowser(this.platformId)) {
+      this.isDarkMode = !this.isDarkMode;
+      localStorage.setItem('darkMode', this.isDarkMode.toString());
+      this.applyDarkMode(this.isDarkMode);
+    }
   }
-  
+
+  // Apply or remove dark mode class based on the state
+  applyDarkMode(isDark: boolean) {
+    if (isDark) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }
 
   filterCountries() {
     this.filteredCountries = this.countries.filter((country) => {
