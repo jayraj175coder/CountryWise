@@ -28,12 +28,8 @@ export class CountryListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getCountries().subscribe(data => {
-      this.countries = data;
-    });
+   
   }
 
-  getCountries(): Observable<Country[]> {
-    return this.http.get<Country[]>('/assets/countries.json');
-  }
+  
 }

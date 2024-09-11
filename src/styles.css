@@ -7,8 +7,35 @@ body.dark-mode {
     background-color: hsl(207, 26%, 17%) !important; /* Dark Mode Background */
     color: hsl(0, 0%, 100%) !important; /* Dark Mode Text */
   }
-  
-  /* Ensure dark mode styles for specific elements */
+  /* In your global styles (e.g., styles.css or app.component.css) */
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('https://fonts.gstatic.com/s/nunitosans/v11/pe0qMImSLYBIv1o4X1M8cceGFjA.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('https://fonts.gstatic.com/s/nunitosans/v11/pe0qMImSLYBIv1o4X1M8cceGFjB.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('https://fonts.gstatic.com/s/nunitosans/v11/pe0qMImSLYBIv1o4X1M8cceGFjC.woff2') format('woff2');
+  font-display: swap;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
   body.dark-mode .header {
     background-color: hsl(209, 23%, 22%) !important;
     color: hsl(0, 0%, 100%) !important;

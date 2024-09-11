@@ -4,12 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { CountryListComponent } from './country-list/country-list.component'; // Make sure to import CountryListComponent
-
+import { CountryListComponent } from './country-list/country-list.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CountryListComponent // Ensure CountryListComponent is declared here
+    CountryListComponent 
   ],
   imports: [
     BrowserModule,

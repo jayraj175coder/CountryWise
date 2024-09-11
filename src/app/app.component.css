@@ -1,9 +1,7 @@
 /* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
 /* General Improvements */
 body {
-  font-family: 'Nunito Sans', sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 0;
